@@ -3,7 +3,7 @@
   "build": {
     "builder": "NIXPACKS",
     "buildCommand": "cd server && npm install && cd ../client && npm install && npm run build",
-    "watchPatterns": ["server/**", "client/src/**"]
+    "watchPatterns": ["*.json", "server/**", "client/src/**"]
   },
   "deploy": {
     "startCommand": "npm start",
