@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+server/node_modules 2/
+
+# Dev SW output
+client/dev-dist/
+
+# Build output
+client/dist/
+
+# Environment variables — never commit these
+.env
+.env.local
+
+# SQLite database — persisted via Railway volume in production
+*.db
+
+# OS
+.DS_Store
+
+# Vite
+client/tsconfig.tsbuildinfo
