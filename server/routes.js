@@ -3,6 +3,9 @@ const router = express.Router();
 const db = require('./db');
 const { generateMessage, streamChatToResponse } = require('./ai');
 
+// GET /api/health — Railway healthcheck
+router.get('/health', (_req, res) => res.json({ status: 'ok' }));
+
 const today = () => new Date().toISOString().split('T')[0];
 
 function timeOfDay() {
