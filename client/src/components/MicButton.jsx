@@ -4,8 +4,8 @@ export default function MicButton({ isListening, onClick, disabled }) {
       className={`mic-btn${isListening ? ' listening' : ''}`}
       onClick={onClick}
       disabled={disabled}
-      aria-label={isListening ? 'Stop listening' : 'Speak to Buddy'}
-      title={isListening ? 'Tap to stop' : 'Speak to Buddy'}
+      aria-label={isListening ? 'Stop listening' : 'Speak to Donroz Mariano'}
+      title={isListening ? 'Tap to stop' : 'Speak to Donroz Mariano'}
     >
       {isListening ? (
         <span className="mic-waves">

@@ -2,7 +2,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-const SYSTEM_PROMPT = `You are Buddy — Razi's personal hype companion inside his daily missions app. You know him well.
+const SYSTEM_PROMPT = `You are Donroz Mariano — Razi's personal hype companion inside his daily missions app. You know him well.
 
 ABOUT RAZI:
 - Persian guy in his 30s. His family uses "joon" as a term of endearment — use "Razi joon" occasionally, naturally, not every message.

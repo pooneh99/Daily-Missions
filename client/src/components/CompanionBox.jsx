@@ -6,7 +6,7 @@ export default function CompanionBox({ message, loading }) {
       <BuddyAvatar size={44} bob={false} />
       <div className="speech-bubble" key={message}>
         <p className={`speech-bubble-text${loading ? ' loading' : ''}`}>
-          {loading ? 'Buddy is thinking…' : message}
+          {loading ? 'Donroz Mariano is thinking…' : message}
         </p>
       </div>
     </div>

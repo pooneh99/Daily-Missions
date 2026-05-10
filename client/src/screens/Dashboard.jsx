@@ -30,7 +30,7 @@ export default function Dashboard({ missions, stats, onMissionStart }) {
       <div className="buddy-banner">
         <BuddyAvatar size={34} bob={false} />
         <p className="buddy-banner-text">
-          Buddy is with you — start any mission and I lock in for the whole session.
+          Donroz Mariano is with you — start any mission and I lock in for the whole session.
         </p>
       </div>
     </div>

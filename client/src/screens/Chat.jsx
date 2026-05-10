@@ -149,7 +149,7 @@ export default function Chat() {
       <div className="chat-header">
         <BuddyAvatar size={46} bob={false} />
         <div className="chat-header-info">
-          <h2>Buddy</h2>
+          <h2>Donroz Mariano</h2>
           <p>Your personal hype companion</p>
         </div>
         <div className="online-dot" />
@@ -158,7 +158,7 @@ export default function Chat() {
       <div className="chat-messages">
         {messages.length === 0 && !isTyping && (
           <div className="chat-empty">
-            <p>Say hey to Buddy — he's been waiting for you.</p>
+            <p>Say hey to Donroz Mariano — he's been waiting for you.</p>
             {sttSupported && (
               <p style={{ marginTop: 8, fontSize: 13, color: 'var(--text-tertiary)' }}>
                 Tap the mic to speak, or type below.
@@ -193,7 +193,7 @@ export default function Chat() {
         <textarea
           ref={inputRef}
           className={`chat-input${isListening ? ' listening-input' : ''}`}
-          placeholder={isListening ? 'Listening…' : 'Talk to Buddy…'}
+          placeholder={isListening ? 'Listening…' : 'Talk to Donroz Mariano…'}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}

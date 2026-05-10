@@ -187,12 +187,12 @@ function TabBar({ activeTab, onTabChange, isMuted, toggleMute, isSpeaking }) {
         onClick={() => onTabChange('buddy')}
       >
         <span className="tab-icon">💬</span>
-        <span className="tab-label">Buddy</span>
+        <span className="tab-label">Donroz Mariano</span>
       </button>
       <button
         className={`tab-btn${isMuted ? ' muted' : ''}`}
         onClick={toggleMute}
-        title={isMuted ? 'Unmute Buddy' : 'Mute Buddy'}
+        title={isMuted ? 'Unmute Donroz Mariano' : 'Mute Donroz Mariano'}
       >
         <span className={`tab-icon${isSpeaking && !isMuted ? ' speaking-pulse' : ''}`}>
           {isMuted ? '🔇' : '🔊'}

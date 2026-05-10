@@ -131,7 +131,7 @@ export default function FocusTimer({ mission, onComplete, onBack }) {
         </div>
 
         <div className="tip-card" style={{ borderLeftColor: color }}>
-          <p className="tip-label">Buddy's tip</p>
+          <p className="tip-label">Donroz Mariano's tip</p>
           <p className="tip-text">{tip}</p>
         </div>
       </div>
