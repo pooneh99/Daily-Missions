@@ -14,7 +14,7 @@ export const MISSIONS = [
     emoji: '💼',
     duration: 45,
     xp: 150,
-    color: '#D85A30',
+    color: '#7C3AED',
     tip: "Break it into 3 tasks: one email, one application, one connection. You're building toward the life you want.",
   },
   {
@@ -23,7 +23,7 @@ export const MISSIONS = [
     emoji: '🏋️',
     duration: 30,
     xp: 100,
-    color: '#BA7517',
+    color: '#EF4444',
     tip: "Show up. That's 80% of it. The energy you build here spills into everything else.",
   },
   {
@@ -32,7 +32,7 @@ export const MISSIONS = [
     emoji: '🍳',
     duration: 25,
     xp: 80,
-    color: '#3B6D11',
+    color: '#F97316',
     tip: 'One good meal = taking care of yourself so you can show up for the people you love.',
   },
   {
@@ -41,7 +41,7 @@ export const MISSIONS = [
     emoji: '🧹',
     duration: 20,
     xp: 60,
-    color: '#185FA5',
+    color: '#0284C7',
     tip: 'Your space reflects your headspace. A clear environment = a clearer mind.',
   },
   {
@@ -50,7 +50,7 @@ export const MISSIONS = [
     emoji: '🚿',
     duration: 15,
     xp: 50,
-    color: '#533AB7',
+    color: '#059669',
     tip: 'How you show up for yourself is how you show up for others. This one counts.',
   },
 ];

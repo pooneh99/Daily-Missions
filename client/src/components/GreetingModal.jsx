@@ -8,6 +8,8 @@ export default function GreetingModal({ missions, onClose }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    speak("Welcome to another day together Razi joon, I'm excited to help you throughout today!");
+
     const streaks = {};
     missions.forEach((m) => {
       if (m.streak > 0) streaks[m.label] = m.streak;
@@ -22,13 +24,10 @@ export default function GreetingModal({ missions, onClose }) {
       .then((data) => {
         setMessage(data.message);
         setLoading(false);
-        speak(data.message);
       })
       .catch(() => {
-        const fallback = "New day, fresh missions. Let's make it count!";
-        setMessage(fallback);
+        setMessage("New day, fresh missions. Let's make it count!");
         setLoading(false);
-        speak(fallback);
       });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

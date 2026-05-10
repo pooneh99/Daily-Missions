@@ -6,13 +6,14 @@
 }
 
 :root {
-  --accent: #D85A30;
-  --bg: #ffffff;
-  --surface: #f5f5f3;
-  --border: rgba(0, 0, 0, 0.1);
-  --text: #1a1a1a;
-  --text-secondary: #666;
-  --text-tertiary: #999;
+  --accent: #7C3AED;
+  --accent-rgb: 124, 58, 237;
+  --bg: #FFFBF7;
+  --surface: #F4F0FF;
+  --border: rgba(124, 58, 237, 0.12);
+  --text: #1A1228;
+  --text-secondary: #5B4F72;
+  --text-tertiary: #9B8FB5;
 }
 
 /* ─── Animations ─── */
@@ -49,7 +50,7 @@
 /* ─── Base ─── */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #deded9;
+  background: #DDD6FE;
   min-height: 100dvh;
   display: flex;
   justify-content: center;
@@ -154,7 +155,7 @@ body {
 
 .xp-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), #e87c55);
+  background: linear-gradient(90deg, var(--accent), #A855F7, #F97316);
   border-radius: 3px;
   transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -171,50 +172,95 @@ body {
   margin-bottom: 10px;
 }
 
+/* ─── Quote Card ─── */
+.quote-card {
+  margin: 12px 16px 4px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.08), rgba(var(--accent-rgb), 0.04));
+  border: 1px solid rgba(var(--accent-rgb), 0.15);
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  position: relative;
+}
+
+.quote-mark {
+  font-size: 28px;
+  line-height: 0;
+  vertical-align: -10px;
+  margin-right: 2px;
+  opacity: 0.35;
+  font-family: Georgia, serif;
+}
+
 /* ─── Mission Card ─── */
 .mission-card {
   display: flex;
   align-items: stretch;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   margin-bottom: 10px;
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
   transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.07), 0 1px 2px rgba(0,0,0,0.04);
   -webkit-tap-highlight-color: transparent;
 }
 
-.mission-card:active:not(.completed) { transform: scale(0.98); }
+.mission-card:hover:not(.completed) {
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.14), 0 2px 6px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
 
-.mission-card.completed { opacity: 0.5; cursor: default; }
+.mission-card:active:not(.completed) { transform: scale(0.98); box-shadow: none; }
 
-.mission-card-accent { width: 5px; flex-shrink: 0; }
+.mission-card.completed { opacity: 0.45; cursor: default; }
 
 .mission-card-body {
   flex: 1;
-  padding: 14px 10px 14px 12px;
+  padding: 14px 8px 14px 14px;
 }
 
 .mission-card-top {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 7px;
+  gap: 12px;
 }
 
-.mission-emoji { font-size: 19px; line-height: 1; }
+/* ─── 3D Mission Icon ─── */
+.mission-icon-3d {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mission-emoji { font-size: 22px; line-height: 1; }
+
+.mission-card-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
 .mission-name {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text);
+  letter-spacing: -0.2px;
 }
 
 .mission-card-meta {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -240,9 +286,10 @@ body {
 .mission-card-right {
   display: flex;
   align-items: center;
-  padding-right: 14px;
+  padding-right: 16px;
   color: var(--text-tertiary);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* ─── Buddy Banner ─── */
