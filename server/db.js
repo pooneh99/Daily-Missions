@@ -24,6 +24,13 @@ db.exec(`
     content TEXT,
     created_at TEXT DEFAULT (datetime('now'))
   );
+
+  CREATE TABLE IF NOT EXISTS snake (
+    id INTEGER PRIMARY KEY,
+    high_score INTEGER DEFAULT 0,
+    today_score INTEGER DEFAULT 0,
+    last_played TEXT
+  );
 `);
 
 // Seed stats row
@@ -47,6 +54,11 @@ for (const m of MISSION_SEEDS) {
     db.prepare('INSERT INTO missions (id, label, streak, last_completed) VALUES (?, ?, 0, NULL)')
       .run(m.id, m.label);
   }
+}
+
+const snakeRow = db.prepare('SELECT id FROM snake WHERE id = ?').get(1);
+if (!snakeRow) {
+  db.prepare('INSERT INTO snake (id, high_score, today_score, last_played) VALUES (1, 0, 0, NULL)').run();
 }
 
 module.exports = db;

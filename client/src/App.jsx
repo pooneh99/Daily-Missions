@@ -6,6 +6,7 @@ import MissionComplete from './screens/MissionComplete.jsx';
 import Chat from './screens/Chat.jsx';
 import GreetingModal from './components/GreetingModal.jsx';
 import InstallBanner from './components/InstallBanner.jsx';
+import SnakeGame from './components/SnakeGame.jsx';
 
 export const MISSIONS = [
   {
@@ -63,6 +64,8 @@ function AppInner() {
   const [completionData, setCompletionData] = useState(null);
   const [stats, setStats] = useState({ xp: 720, level: 1, levelXP: 720, missions: [] });
   const [showGreeting, setShowGreeting] = useState(false);
+  const [showSnake, setShowSnake] = useState(false);
+  const [snakeScores, setSnakeScores] = useState({ highScore: 0, todayScore: 0 });
 
   useEffect(() => {
     loadStats(true);
@@ -73,11 +76,31 @@ function AppInner() {
       const res = await fetch('/api/stats');
       const data = await res.json();
       setStats(data);
-      if (isInit && data.isNewDay) setShowGreeting(true);
+      if (isInit && data.isNewDay) {
+        const snake = await fetch('/api/snake').then(r => r.json()).catch(() => ({ highScore: 0, todayScore: 0 }));
+        setSnakeScores(snake);
+        setShowSnake(true);
+      }
     } catch (err) {
       console.error('Failed to load stats', err);
     }
   }
+
+  const handleSnakeFinish = () => {
+    setShowSnake(false);
+    setShowGreeting(true);
+  };
+
+  const handleSnakeScore = async (score) => {
+    try {
+      const data = await fetch('/api/snake/score', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ score }),
+      }).then(r => r.json());
+      setSnakeScores(data);
+    } catch {}
+  };
 
   const enrichedMissions = MISSIONS.map((m) => {
     const db = stats.missions.find((d) => d.id === m.id) || {};
@@ -135,7 +158,15 @@ function AppInner() {
   return (
     <div className="app">
       <InstallBanner />
-      {showGreeting && (
+      {showSnake && (
+        <SnakeGame
+          highScore={snakeScores.highScore}
+          todayScore={snakeScores.todayScore}
+          onFinish={handleSnakeFinish}
+          onScore={handleSnakeScore}
+        />
+      )}
+      {showGreeting && !showSnake && (
         <GreetingModal missions={enrichedMissions} onClose={() => setShowGreeting(false)} />
       )}
 

@@ -901,3 +901,140 @@ body {
   background: #fff8f6;
   color: var(--text);
 }
+
+/* ─── Snake Game ─── */
+.snake-overlay {
+  position: fixed;
+  inset: 0;
+  background: #1A1228;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.snake-modal {
+  width: 100%;
+  max-width: 400px;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 20px;
+  gap: 10px;
+}
+
+.snake-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.snake-timer {
+  font-size: 24px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+  min-width: 52px;
+}
+
+.snake-scores {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.snake-score-item {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.snake-score-item strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.snake-score-divider { color: rgba(255,255,255,0.25); }
+
+.snake-skip {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.65);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.snake-skip:hover { background: rgba(255,255,255,0.18); }
+
+.snake-title {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.2px;
+  flex-shrink: 0;
+}
+
+.snake-canvas-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+
+.snake-canvas {
+  border-radius: 14px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  touch-action: none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 16px 48px rgba(0,0,0,0.5);
+}
+
+/* D-pad */
+.snake-dpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.dpad-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dpad-center {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+}
+
+.dpad-btn {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: background 0.1s;
+}
+
+.dpad-btn:active { background: rgba(216,90,48,0.4); border-color: #D85A30; }

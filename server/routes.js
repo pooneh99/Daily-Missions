@@ -161,6 +161,28 @@ router.post('/tts', async (req, res) => {
   }
 });
 
+// GET /api/snake — fetch high score and today's score
+router.get('/snake', (req, res) => {
+  const row = db.prepare('SELECT * FROM snake WHERE id = 1').get();
+  const todayStr = today();
+  res.json({
+    highScore: row.high_score,
+    todayScore: row.last_played === todayStr ? row.today_score : 0,
+  });
+});
+
+// POST /api/snake/score — submit a score
+router.post('/snake/score', (req, res) => {
+  const { score } = req.body;
+  const todayStr = today();
+  const row = db.prepare('SELECT * FROM snake WHERE id = 1').get();
+  const newToday = Math.max(row.last_played === todayStr ? row.today_score : 0, score);
+  const newHigh = Math.max(row.high_score, score);
+  db.prepare('UPDATE snake SET today_score = ?, high_score = ?, last_played = ? WHERE id = 1')
+    .run(newToday, newHigh, todayStr);
+  res.json({ highScore: newHigh, todayScore: newToday });
+});
+
 // GET /api/messages
 router.get('/messages', (req, res) => {
   const messages = db
